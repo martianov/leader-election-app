@@ -12,6 +12,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.util.internal.logging.InternalLoggerFactory;
+import io.netty.util.internal.logging.Slf4JLoggerFactory;
 
 public class LeaderElectionApp {
     public void startLeader(int port) throws Exception {
@@ -88,6 +90,7 @@ public class LeaderElectionApp {
     }
 
     public static void main(String[] args) throws Exception {
+        InternalLoggerFactory.setDefaultFactory(Slf4JLoggerFactory.INSTANCE);
         int portString = getPort();
         Integer leaderPort = getLeaderPort();
         if (leaderPort == null) {
