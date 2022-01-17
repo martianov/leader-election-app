@@ -1,7 +1,7 @@
 package com.github.martianov.le.protocol;
 
 public enum MessageCodes {
-    PING(0), PONG(1);
+    PING(0), PONG(1), CONNECT(2), NODES_LIST(3);
 
     private final int code;
     MessageCodes(int code) {
